@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <arpa/inet.h>
+#include <string.h>
+int main() {
+	int port = 3300;
+	char *host = "localhost";
+	struct sockaddr_in addr;
+
+	addr.sin_port = htons(port);
+	addr.sin_family = AF_INET;
+
+	struct hostent *entry = gethostbyname(host); // Get host entries
+
+	memcpy(&addr.sin_addr, entry->h_addr, sizeof entry->h_addr);
+	int s = socket(AF_INET, SOCK_STREAM, 0);
+	int conn = connect(s, (struct sockaddr*)&addr, (socklen_t)sizeof(addr));
+
+	printf("%d", conn);
+	return 1;
+}
