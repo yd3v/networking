@@ -8,9 +8,9 @@ int main(int argc, char* argv[]) {
 	struct hostent *host;
 
 	host = gethostbyname(argv[1]);
-
 	if(!host) return 1;
-	inet_ntop(AF_INET, host->h_addr, buff, sizeof buff);
+
+	inet_ntop(AF_INET, host->h_addr, buff, sizeof host->h_addr);
 
 	printf("%s\n", buff);
 	return 0;
