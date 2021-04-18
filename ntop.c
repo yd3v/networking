@@ -1,3 +1,4 @@
+
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <stdio.h>
@@ -8,9 +9,12 @@ int main(int argc, char* argv[]) {
 	struct hostent *host;
 
 	host = gethostbyname(argv[1]);
+	// converts the given hostname to binary form
+
 	if(!host) return 1;
 
 	inet_ntop(AF_INET, host->h_addr, buff, sizeof host->h_addr);
+	// converts address from binary form to text and takes it into the buffer
 
 	printf("%s\n", buff);
 	return 0;
