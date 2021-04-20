@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <malloc.h>
 int main() {
-	char *hostname = (char*)malloc(30);
+	char hostname[30];
 	struct hostent *address;
 	char ip_addr[16];
 
