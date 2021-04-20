@@ -6,11 +6,12 @@
 int main() {
 	char *hostname = (char*)malloc(30);
 	struct hostent *address;
-	char *ip_addr = (char*)malloc(30);
+	char ip_addr[16];
+
 	gethostname(hostname, sizeof hostname); // (char* name, size_t len)
 	address = gethostbyname(hostname);
-
 	inet_ntop(AF_INET, address->h_addr, ip_addr, sizeof ip_addr);
-	printf("hostname -> %s\naddress -> '%s'\n", hostname, ip_addr);
+	// (int af, const void *src, char *dst, socklen_t size)
+	printf("hostname -> %s\naddress  -> %s\n", hostname, ip_addr);
 	return 0;
 }
