@@ -8,7 +8,7 @@ struct hostent *host = gethostbyname("localhost");
 
 ----- unistd.h ---------
 -> int gethostname(char *name, size_t len);
-returns the current hostname
+puts current hostname to pointer `name`
 ex:
 char hostname[24];
 int res = gethostname(hostname, sizeof hostname);
