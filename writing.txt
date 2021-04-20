@@ -12,9 +12,11 @@ returns the current hostname
 ex:
 char hostname[24];
 int res = gethostname(hostname, sizeof hostname);
+on success, returns 0, on error returns -1 and set `errno`
 
 -> int sethostname(char *name, size_t len);
-set the new hostname (need root)
+set the new hostname 
 ex:
 char hostname[] = "computer"
 sethostname(hostname, sizeof hostname);
+on success, returns 0, on error retuns -1 and set `errno`

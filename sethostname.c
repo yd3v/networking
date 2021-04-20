@@ -7,9 +7,7 @@ int main() {
 	int err = errno;
 	char hostname[] = "computer";
 	int res = sethostname(hostname, sizeof hostname);
-	if(res) {
-		printf("err: %s", strerror(err));
-		return errno;
-	}
-	return 0;
+
+	printf("errno: %s\n", strerror(err));
+	return errno;
 }
