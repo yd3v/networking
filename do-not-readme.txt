@@ -3,20 +3,23 @@
 ----- netdb.h -----------
 -> struct hostent *gethostbyname(const char *name);
 returns a `hostent` struct for the given `name`	
-ex:
+- ex:
 struct hostent *host = gethostbyname("localhost");
 
 ----- unistd.h ---------
 -> int gethostname(char *name, size_t len);
 puts current hostname to pointer `name`
-ex:
+- ex:
 char hostname[24];
 int res = gethostname(hostname, sizeof hostname);
-on success, returns 0, on error returns -1 and set `errno`
+on success returns 0, on error returns -1 and set `errno`
 
 -> int sethostname(char *name, size_t len);
 set the new hostname 
-ex:
+- ex:
 char hostname[] = "computer"
 sethostname(hostname, sizeof hostname);
-on success, returns 0, on error retuns -1 and set `errno`
+on success returns 0, on error retuns -1 and set `errno`
+
+----- arpa/inet.h --------
+-> const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
