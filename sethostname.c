@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+
 extern int errno;
 int main() {
 	int err = errno;
