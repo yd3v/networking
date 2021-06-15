@@ -5,7 +5,7 @@ int main(int argc, char* argv[]) {
 	if(argc < 2) return 1;
 
 	char buff[16];
-	struct hostent *host;
+	struct hostent* host;
 
 	host = gethostbyname(argv[1]);
 	// converts the given hostname to binary form
